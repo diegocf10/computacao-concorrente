@@ -1,0 +1,7 @@
+BasedOnStyle: LLVM
+Language: Cpp
+IndentWidth: 4
+DerivePointerAlignment: false
+PointerAlignment: Left
+AlwaysBreakTemplateDeclarations: true
+
