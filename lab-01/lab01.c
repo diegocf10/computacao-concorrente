@@ -28,7 +28,7 @@ void* increment(void* arg) {
     array_inc_t* arr_inc = (array_inc_t*)arg;
     int* arr = arr_inc->array;
 
-    for (int i = arr_inc->is_even ? 0 : 1; i < ARRAY_SIZE; i += NTHREADS) {
+    for (int i = arr_inc->is_even ? 0 : 1; i < ARRAY_SIZE; i += 2) {
         ++arr[i];
     }
 
@@ -44,7 +44,7 @@ int main() {
     pthread_t tid[NTHREADS];
 
     // cria array e inicializa com zeros
-    int* array = (int*)calloc(ARRAY_SIZE, sizeof(int));
+    int* array = calloc(ARRAY_SIZE, sizeof(int));
 
     for (int i = 0; i < NTHREADS; ++i) {
         array_inc_t* args = malloc(sizeof(array_inc_t));
