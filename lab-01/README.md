@@ -1,13 +1,13 @@
-# Como Compilar
+## Como Compilar
 
 > $ make
 
 
-# Como executar
+## Como executar
 
 
 > $ make run
 
 Ou
 
-> $./lab01
+> $ ./lab01
