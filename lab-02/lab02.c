@@ -127,7 +127,7 @@ int main(int argc, char* argv[]) {
     }
 
     if (!is_ok) {
-        puts("Deu zembra. Erro na multiplicação");
+        puts("Deu zebra. Erro na multiplicação");
         return 1;
     }
 
