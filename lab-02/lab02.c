@@ -7,6 +7,8 @@
  * Descrição: Este programa faz multiplicação entre matrizes
  * usando n threads
  *
+ * ./lab02 <dimensão_da_matriz> <num_de_threads>
+ * ./lab02 500 4
  *
  */
 #include "timer.h"
@@ -50,13 +52,11 @@ void* mult_matrix_task(void* arg) {
     }
 
     pthread_exit(NULL);
-
-    return NULL;
 }
 
 int main(int argc, char* argv[]) {
     if (argc < 3) {
-        printf("Digite: %s <dimensao_da_matrix_quadrada> "
+        printf("Digite: %s <dimensao_da_matriz> "
                "<numero_de_threads>\nExemplo: %s 500 4\n",
                argv[0], argv[0]);
         return 1;
@@ -65,7 +65,7 @@ int main(int argc, char* argv[]) {
     int dim = atoi(argv[1]);
     int nthreads = atoi(argv[2]);
 
-    double start, end, total = 0.0;
+    double start, end, elapsed, total = 0.0;
 
     GET_TIME(start);
 
@@ -85,8 +85,11 @@ int main(int argc, char* argv[]) {
 
     GET_TIME(end);
 
-    printf("Tempo de inicialização: %f\n", end - start);
-    total += end - start;
+    elapsed = end - start;
+
+    printf("Tempo de inicialização: %f\n", elapsed);
+
+    total += elapsed;
 
     GET_TIME(start);
 
@@ -111,8 +114,10 @@ int main(int argc, char* argv[]) {
 
     GET_TIME(end);
 
-    printf("Tempo de multiplicação: %f\n", end - start);
-    total += end - start;
+    elapsed = end - start;
+
+    printf("Tempo de multiplicação: %f\n", elapsed);
+    total += elapsed;
 
     bool is_ok = true;
 
@@ -141,8 +146,10 @@ int main(int argc, char* argv[]) {
 
     GET_TIME(end);
 
-    printf("Tempo de finalização: %f\n", end - start);
-    total += end - start;
+    elapsed = end - start;
+
+    printf("Tempo de finalização: %f\n", elapsed);
+    total += elapsed;
 
     printf("Tempo total: %f\n", total);
 

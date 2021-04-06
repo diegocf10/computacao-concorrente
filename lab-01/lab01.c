@@ -83,7 +83,7 @@ int main() {
     }
 
     if (!is_ok) {
-        printf("Deu zembra! O vetor não foi incrementado corretamente!\n");
+        printf("Deu zebra! O vetor não foi incrementado corretamente!\n");
     } else {
         printf("Deu tudo certo. Vetor foi incrementado com sucesso!\n");
     }
