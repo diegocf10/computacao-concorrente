@@ -85,7 +85,12 @@ int main() {
         return 1;
     }
 
-    pthread_exit(NULL);
+    for (int i = 0; i < NTHREADS; ++i) {
+        if (pthread_join(threads[i], NULL)) {
+            fprintf(stderr, "Erro pthread_join");
+            return 1;
+        }
+    }
 
     pthread_mutex_destroy(&lock);
     pthread_cond_destroy(&cond_1);
