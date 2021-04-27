@@ -87,5 +87,9 @@ int main() {
 
     pthread_exit(NULL);
 
+    pthread_mutex_destroy(&lock);
+    pthread_cond_destroy(&cond_1);
+    pthread_cond_destroy(&cond_2);
+
     return 0;
 }
