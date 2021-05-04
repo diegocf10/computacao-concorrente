@@ -6,5 +6,6 @@
 
 ## Como executar
 
-> $ ./lab05
+> ./lab05 <tamanho_do_array_em_potencia_de_2>
 
+> ./lab05 4
